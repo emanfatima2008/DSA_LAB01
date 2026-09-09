@@ -1,24 +1,28 @@
 #include <iostream>
 #include <vector>
+#include <string>
 #include "utilities.h"
 using namespace std;
 
-void runTest(const string& testName, const vector<int>& result, const vector<int>& expected) {
-    cout << testName << ": " << (result == expected ? "PASS" : "FAIL") << endl;
-}
-
 int main() {
-    // Test Case 1: Multiple occurrences
-    vector<int> arr1 = {10, 20, 30, 20, 40, 20};
-    runTest("Multiple Occurrences", findAllIndices(arr1, 20), {1, 3, 5});
+    // Task 4: Naive Pattern Search Tests
+    string text = "hello world";
 
-    // Test Case 2: Key not present
-    vector<int> arr2 = {1, 2, 3, 4};
-    runTest("Key Not Present", findAllIndices(arr2, 99), {});
+    // 1. Pattern at the beginning
+    cout << "Pattern at beginning: " 
+         << (naivePatternSearch(text, "hello") == 0 ? "PASS" : "FAIL") << endl;
 
-    // Test Case 3: Empty array
-    vector<int> arr3 = {};
-    runTest("Empty Array", findAllIndices(arr3, 5), {});
+    // 2. Pattern at the end
+    cout << "Pattern at end: " 
+         << (naivePatternSearch(text, "world") == 6 ? "PASS" : "FAIL") << endl;
+
+    // 3. Pattern not present
+    cout << "Pattern not present: " 
+         << (naivePatternSearch(text, "cpp") == -1 ? "PASS" : "FAIL") << endl;
+
+    // 4. Empty pattern
+    cout << "Empty pattern: " 
+         << (naivePatternSearch(text, "") == -1 ? "PASS" : "FAIL") << endl;
 
     return 0;
 }
