@@ -1,19 +1,21 @@
 #include "utilities.h"
+#include<vector>
 using namespace std;
 
-// Task 4 Implementation
-int naivePatternSearch(const string& text, const string& pattern) {
-    if (pattern.empty()) return -1;
-    
-    int n = text.length();
-    int m = pattern.length();
+// Task 5 Implementation
+vector<vector<int>> generatePascalsTriangle(int numRows) {
+  vector<vector<int>> triangle;
+    if (numRows <= 0)
+     return triangle;
 
-    for (int i = 0; i <= n - m; ++i) {
-        int j = 0;
-        while (j < m && text[i + j] == pattern[j]) {
-            j++;
+
+    for (int i = 0; i < numRows; ++i) {
+        vector<int> row(i + 1, 1);
+        for (int j = 1; j < i; ++j) {
+            row[j] = triangle[i - 1][j - 1] + triangle[i - 1][j];
         }
-        if (j == m) return i; // Pattern found at index i
+        triangle.push_back(row);
     }
-    return -1; // Pattern not found
+
+    return triangle;
 }

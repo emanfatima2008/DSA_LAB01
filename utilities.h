@@ -1,9 +1,9 @@
 #ifndef UTILITIES_H
 #define UTILITIES_H
 
-#include <string>
+#include <vector>
 
-// Task 4: Naive Pattern Search
-int naivePatternSearch(const std::string& text, const std::string& pattern);
+// Task 5: Generaing the Pascal's Triangle
+std::vector<std::vector<int>> generatePascalsTriangle(int numRows);
 
 #endif
