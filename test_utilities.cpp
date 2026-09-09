@@ -4,21 +4,20 @@
 using namespace std;
 
 int main() {
-    // Test Case: Valid 2x2 Matrix Multiplication
-    vector<vector<int>> A = {{1, 2}, {3, 4}};
-    vector<vector<int>> B = {{5, 6}, {7, 8}};
-    vector<vector<int>> expected = {{19, 22}, {43, 50}};
+    // Test Case 1: Multiple occurrences
+    vector<int> arr1 = {10, 20, 30, 20, 40, 20};
+    vector<int> res1 = findAllIndices(arr1, 20);
+    cout << "Test 1 (Multiple Occurrences): " << (res1 == vector<int>{1, 3, 5} ? "PASS" : "FAIL") << endl;
 
-    vector<vector<int>> C = matrixMultiply(A, B);
+    // Test Case 2: Key not present
+    vector<int> arr2 = {1, 2, 3, 4};
+    vector<int> res2 = findAllIndices(arr2, 99);
+    cout << "Test 2 (Key Not Present): " << (res2.empty() ? "PASS" : "FAIL") << endl;
 
-    cout << "Matrix Multiplication (2x2): " 
-         << (C == expected ? "PASS" : "FAIL") << endl;
-
-    // Test Case: Incompatible dimensions
-    vector<vector<int>> BadB = {{1, 2, 3}};
-    vector<vector<int>> BadC = matrixMultiply(A, BadB);
-    cout << "Incompatible Dimensions: " 
-         << (BadC.empty() ? "PASS" : "FAIL") << endl;
+    // Test Case 3: Empty array
+    vector<int> arr3 = {};
+    vector<int> res3 = findAllIndices(arr3, 5);
+    cout << "Test 3 (Empty Array): " << (res3.empty() ? "PASS" : "FAIL") << endl;
 
     return 0;
 }
