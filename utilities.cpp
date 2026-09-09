@@ -1,21 +1,25 @@
 #include "utilities.h"
 #include<vector>
 using namespace std;
+#include <unordered_map>
 
-// Task 5 Implementation
-vector<vector<int>> generatePascalsTriangle(int numRows) {
-  vector<vector<int>> triangle;
-    if (numRows <= 0)
-     return triangle;
+// Task 6 Implementation
+int findMode(const vector<int>& nums) {
+    if (nums.empty()) return -1; // Return -1 for empty array
 
+    std::unordered_map<int, int> frequencyMap;
+    int maxFreq = 0;
+    int mode = nums[0];
 
-    for (int i = 0; i < numRows; ++i) {
-        vector<int> row(i + 1, 1);
-        for (int j = 1; j < i; ++j) {
-            row[j] = triangle[i - 1][j - 1] + triangle[i - 1][j];
+    for (int num : nums) {
+        frequencyMap[num]++;
+        if (frequencyMap[num] > maxFreq) {
+            maxFreq = frequencyMap[num];
+            mode = num;
+      
         }
-        triangle.push_back(row);
     }
 
-    return triangle;
+    
+    return mode;
 }

@@ -3,7 +3,7 @@
 
 #include <vector>
 
-// Task 5: Generaing the Pascal's Triangle
-std::vector<std::vector<int>> generatePascalsTriangle(int numRows);
+// Task 6: Find Mode (Most Frequent Element)
+int findMode(const std::vector<int>& nums);
 
 #endif
