@@ -1,9 +1,9 @@
 #ifndef UTILITIES_H
 #define UTILITIES_H
 
-#include <vector>
+#include <string>
 
-// Task 3: Find all indices of a key in an array
-std::vector<int> findAllIndices(const std::vector<int>& arr, int key);
+// Task 4: Naive Pattern Search
+int naivePatternSearch(const std::string& text, const std::string& pattern);
 
 #endif

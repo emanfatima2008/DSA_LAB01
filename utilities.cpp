@@ -1,17 +1,19 @@
 #include "utilities.h"
-#include<vector>
 using namespace std;
 
-// Task 3 Implementation
-vector<int> findAllIndices(const vector<int>& arr, int key) {
-    vector<int> indices;
-    for (size_t i = 0; i < arr.size(); ++i) {
-        if (arr[i] == key) {
-        
-        indices.push_back(i);
-        
+// Task 4 Implementation
+int naivePatternSearch(const string& text, const string& pattern) {
+    if (pattern.empty()) return -1;
+    
+    int n = text.length();
+    int m = pattern.length();
+
+    for (int i = 0; i <= n - m; ++i) {
+        int j = 0;
+        while (j < m && text[i + j] == pattern[j]) {
+            j++;
+        }
+        if (j == m) return i; // Pattern found at index i
     }
-   
-}
-    return indices;
+    return -1; // Pattern not found
 }
