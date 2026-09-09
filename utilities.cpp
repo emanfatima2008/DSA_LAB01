@@ -1,5 +1,5 @@
 #include "utilities.h"
 
-int add(int first, int second) { 
-    return first + second; 
+int add(int a, int b) { 
+    return a + b; 
 }
