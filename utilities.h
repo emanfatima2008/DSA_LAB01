@@ -3,7 +3,7 @@
 
 #include <vector>
 
-// Task 6: Find Mode (Most Frequent Element)
-int findMode(const std::vector<int>& nums);
+// Task 7: Rotate Array to the Right by K Steps
+void rotateArray(std::vector<int>& nums, int k);
 
 #endif

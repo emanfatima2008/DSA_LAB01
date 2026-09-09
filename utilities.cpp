@@ -1,25 +1,17 @@
 #include "utilities.h"
-#include<vector>
+#include <algorithm>
 using namespace std;
-#include <unordered_map>
 
-// Task 6 Implementation
-int findMode(const vector<int>& nums) {
-    if (nums.empty()) return -1; // Return -1 for empty array
+// Task 7 Implementation
+void rotateArray(std::vector<int>& nums, int k) {
+    int n = nums.size();
+    if (n == 0) return;
 
-    std::unordered_map<int, int> frequencyMap;
-    int maxFreq = 0;
-    int mode = nums[0];
+    k = k % n; // Handle k larger than array length
+    if (k < 0) k += n; // Handle negative rotation
 
-    for (int num : nums) {
-        frequencyMap[num]++;
-        if (frequencyMap[num] > maxFreq) {
-            maxFreq = frequencyMap[num];
-            mode = num;
-      
-        }
-    }
-
-    
-    return mode;
+    // Reverse the whole array, then reverse the two split parts
+    reverse(nums.begin(), nums.end());
+    reverse(nums.begin(), nums.begin() + k);
+    reverse(nums.begin() + k, nums.end());
 }

@@ -4,17 +4,24 @@
 using namespace std;
 
 int main() {
-    // Test 1: Single Mode
-    vector<int> nums1 = {1, 3, 3, 3, 2, 1};
-    cout << "Test 1 (Single Mode 3): " << (findMode(nums1) == 3 ? "PASS" : "FAIL") << endl;
+    // Test 1: Standard Rotation (k = 3)
 
-    // Test 2: All Unique Elements 
-    vector<int> nums2 = {10, 20, 30};
-    cout << "Test 2 (All Unique): " << (findMode(nums2) == 10 ? "PASS" : "FAIL") << endl;
+    vector<int> nums1 = {1, 2, 3, 4, 5, 6, 7};
+    rotateArray(nums1, 3);
+    vector<int> expected1 = {5, 6, 7, 1, 2, 3, 4};
+    cout << "Test 1 (k = 3): " << (nums1 == expected1 ? "PASS" : "FAIL") << endl;
 
+    // Test 2: Rotation k larger than array size (k = 8 on size 4)
+    vector<int> nums2 = {1, 2, 3, 4};
+    rotateArray(nums2, 8);
+    vector<int> expected2 = {1, 2, 3, 4}; // 8 % 4 = 0 shift
+    cout << "Test 2 (k = 8): " << (nums2 == expected2 ? "PASS" : "FAIL") << endl;
+
+    
     // Test 3: Empty Array
     vector<int> nums3 = {};
-    cout << "Test 3 (Empty Array): " << (findMode(nums3) == -1 ? "PASS" : "FAIL") << endl;
+    rotateArray(nums3, 2);
+    cout << "Test 3 (Empty Array): " << (nums3.empty() ? "PASS" : "FAIL") << endl;
 
     return 0;
 }
