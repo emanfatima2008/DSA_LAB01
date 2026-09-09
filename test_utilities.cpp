@@ -1,28 +1,24 @@
 #include <iostream>
 #include <vector>
-#include <string>
 #include "utilities.h"
 using namespace std;
 
 int main() {
-    // Task 4: Naive Pattern Search Tests
-    string text = "hello world";
+    // Test Case: Valid 2x2 Matrix Multiplication
+    vector<vector<int>> A = {{1, 2}, {3, 4}};
+    vector<vector<int>> B = {{5, 6}, {7, 8}};
+    vector<vector<int>> expected = {{19, 22}, {43, 50}};
 
-    // 1. Pattern at the beginning
-    cout << "Pattern at beginning: " 
-         << (naivePatternSearch(text, "hello") == 0 ? "PASS" : "FAIL") << endl;
+    vector<vector<int>> C = matrixMultiply(A, B);
 
-    // 2. Pattern at the end
-    cout << "Pattern at end: " 
-         << (naivePatternSearch(text, "world") == 6 ? "PASS" : "FAIL") << endl;
+    cout << "Matrix Multiplication (2x2): " 
+         << (C == expected ? "PASS" : "FAIL") << endl;
 
-    // 3. Pattern not present
-    cout << "Pattern not present: " 
-         << (naivePatternSearch(text, "cpp") == -1 ? "PASS" : "FAIL") << endl;
-
-    // 4. Empty pattern
-    cout << "Empty pattern: " 
-         << (naivePatternSearch(text, "") == -1 ? "PASS" : "FAIL") << endl;
+    // Test Case: Incompatible dimensions
+    vector<vector<int>> BadB = {{1, 2, 3}};
+    vector<vector<int>> BadC = matrixMultiply(A, BadB);
+    cout << "Incompatible Dimensions: " 
+         << (BadC.empty() ? "PASS" : "FAIL") << endl;
 
     return 0;
 }
